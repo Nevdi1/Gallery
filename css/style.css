@@ -1,0 +1,113 @@
+html {
+  font-size: 1.25rem;
+}
+
+body {
+  font-family: "Inter";
+  line-height: 100%;
+  font-weight: 600;
+  color: #fff;
+  background: #1a1a1a;
+}
+
+/* --------------------------------------------------- */
+.wrapper {
+  min-height: 100%;
+  overflow: clip;
+}
+
+[class*=__container] {
+  max-width: 1230px;
+  margin: 0px auto;
+  padding: 20px 15px;
+}
+
+/* -------------------------Header-------------------------- */
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  row-gap: 20px;
+}
+@media (max-width: 18.875em) {
+  .header__container {
+    justify-content: center;
+  }
+}
+.header__title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+@media (max-width: 29.99875em) {
+  .header__title {
+    font-size: 1.5rem;
+  }
+}
+.header__button {
+  padding: 0.75rem 1.5rem;
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 118.75%; /* 19/16 */
+  background-color: #fff;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+.header__button:hover {
+  background-color: #373737;
+  color: #fff;
+}
+@media (max-width: 29.99875em) {
+  .header__button {
+    padding: 12px 18px;
+  }
+}
+
+/* -------------------------Page-------------------------- */
+.gallery__items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+@media (max-width: 61.99875em) {
+  .gallery__items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 47.99875em) {
+  .gallery__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 29.99875em) {
+  .gallery__items {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.gallery__item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  background-color: #373737;
+}
+.gallery__img a {
+  border-radius: 1rem 1rem 0 0;
+}
+.gallery__img a img {
+  border-radius: 1rem 1rem 0 0;
+  width: 100%;
+  aspect-ratio: 384/288;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.gallery__content {
+  padding: 16px 16px 24px;
+}
+.gallery__data {
+  color: rgb(217, 217, 217);
+  font-size: 0.75rem;
+  font-weight: 400;
+}

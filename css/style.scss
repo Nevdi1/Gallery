@@ -1,0 +1,136 @@
+// ФУНКЦИИ
+@use "sass:math";
+//TO %
+@function prc($pxOne, $pxTwo) {
+	$result: math.div($pxOne, $pxTwo) * 100%;
+	@return $result;
+}
+//REM
+@function rem($px) {
+	$result: math.div($px, 16) + rem;
+	@return $result;
+}
+//EM
+@function em($px) {
+	$result: math.div($px, 16) + em;
+	@return $result;
+}
+
+$pc: em(1200);
+$tablet: em(991.98);
+$mobile: em(767.98);
+$mobileSmall: em(479.98);
+
+// ОБНУЛЕНИЕ СТИЛЕЙ
+html {
+	font-size: 1.25rem;
+}
+
+body {
+	font-family: 'Inter';
+	line-height: 100%;
+	font-weight: 600;
+	color: #fff;
+	background: #1a1a1a;
+}
+
+/* --------------------------------------------------- */
+.wrapper {
+	min-height: 100%;
+	overflow: clip;
+}
+
+[class*="__container"] {
+	max-width: 1230px;
+	margin: 0px auto;
+	padding: 20px 15px;
+}
+
+/* -------------------------Header-------------------------- */
+.header {
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		column-gap: 10px;
+		row-gap: 20px;
+		@media (max-width: em(302)){
+			justify-content: center;
+		}
+	}
+	&__title {
+		font-size: 2rem;
+		font-weight: 700;
+		@media (max-width:$mobileSmall){
+			font-size: 1.5rem;
+		}
+	}
+	&__button {
+		padding: 0.75rem 1.5rem;
+		color:#1a1a1a;
+		font-size: 1rem;
+		font-weight: 500;
+		line-height: 118.75%; /* 19/16 */
+		background-color: #fff;
+		border-radius: 12px;
+		transition: all 0.3s;
+		&:hover{
+			background-color: #373737;
+			color: #fff;
+		}
+		@media (max-width:$mobileSmall){
+			padding: 12px 18px;
+		}
+	}
+}
+/* -------------------------Page-------------------------- */
+.page {
+	&__gallery {}
+}
+
+.gallery {
+	&__container {
+	}
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 24px;
+		@media (max-width: $tablet) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@media (max-width: $mobile) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: $mobileSmall) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+	&__item {
+		display: flex;
+		flex-direction: column;
+		border-radius: 1rem;
+		background-color: #373737
+	}
+	&__img {
+
+		a{
+			border-radius: 1rem 1rem 0 0;
+			img{
+				border-radius: 1rem 1rem 0 0;
+				width: 100%;
+				aspect-ratio: 384 / 288;
+				object-fit: cover;
+			}
+		}
+	}
+	&__content {
+		padding: 16px 16px 24px;
+	}
+	&__title {}
+	&__data {
+		color: rgba(217, 217, 217, 1);
+		font-size: 0.75rem;
+		font-weight: 400;
+	}
+}
